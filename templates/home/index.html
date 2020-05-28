@@ -1,0 +1,325 @@
+
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+	<nav class="nav-section">
+		<div class="container">
+			<div class="nav-right">
+				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
+				<a href="">Вход<i class="sign_in"></i></a>
+			</div>
+			<ul class="main-menu">
+				<li class="active"><a href="index.html">Главная</a></li>
+				<li><a href="/home/about">О нас</a></li>
+				<li><a href="/home/contact">Контакты</a></li>
+			</ul>
+		</div>
+	</nav>
+<!-- Hero section -->
+	<section class="hero-section">
+		<div class="hero-slider owl-carousel">
+			<div class="hs-item set-bg" data-setbg="{%static 'img/hero-slider/1.jpg'%}">
+				<div class="hs-text">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="hs-subtitle">Fly High</div>
+								<h2 class="hs-title">Инвестиции в знания приносят наилучший результат.</h2>
+								<p class="hs-des">Образование - это не просто посещение школы и получение диплома. Это о расширении ваших<br> знаний и познание жизни. Знания - сила.</p>
+								<div class="site-btn">Начнём</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hs-item set-bg" data-setbg="{%static 'img/hero-slider/2.jpg'%}">
+				<div class="hs-text">
+					<div class="container">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="hs-subtitle">Fly High</div>
+								<h2 class="hs-title">Инвестиции в знания приносят наилучший результат.</h2>
+								<p class="hs-des">Образование - это не просто посещение школы и получение диплома. Это о расширении ваших<br> знаний и познание жизни. Знания - сила.</p>
+								<div class="site-btn">Начнём</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+	<!-- Counter section  -->
+	<section class="counter-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 col-md-6">
+					<div class="big-icon">
+						<i class="fa fa-graduation-cap"></i>
+					</div>
+					<div class="counter-content">
+						<h2></h2>
+						<p><i class="fa fa-calendar-o"></i></p>
+					</div>
+				</div>
+				<div class="col-lg-5 col-md-6">
+					<div class="counter">
+						<div class="counter-item"><h4>20</h4>Days</div>
+						<div class="counter-item"><h4>08</h4>Hrs</div>
+						<div class="counter-item"><h4>40</h4>Mins</div>
+						<div class="counter-item"><h4>56</h4>secs</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Counter section end -->
+
+	<!-- Services section0 -->
+	<section class="service-section spad">
+		<div class="container services">
+			<div class="section-title text-center">
+				<h3>После регистрации</h3>
+				<p>Мы можем предоставить вам доступ к:</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-sm-6 service-item">
+					<div class="service-icon">
+						<img src="{%static 'img/services-icons/1.png'%}" alt="1">
+					</div>
+					<div class="service-content">
+						<h4>Учебные материалы</h4>
+						<p>Аудио и Видео материалы, учебники, презентации, игры , домашние задания.
+						А также доступ к росписанию занятий, собственной статистике, форуму. </p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 service-item">
+					<div class="service-icon">
+						<img src="{%static 'img/services-icons/5.png'%}" alt="1">
+					</div>
+					<div class="service-content">
+						<h4>Корректировка программы согласно успеваемости</h4>
+						<p> Вы сможете отследить свой уровень знаний, при необходимости скоректировать занятия
+							с преподавателем</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 service-item">
+					<div class="service-icon">
+						<img src="{%static 'img/services-icons/4.png'%}" alt="1">
+					</div>
+					<div class="service-content">
+						<h4>Адаптация программы под личные цели</h4>
+						<p>У каждого своя цель. Вы можете выбрать любой формат, точно отвечающий личным задачам и пожеланиям:</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Services section end -->
+
+	<!-- Enroll section -->
+	<section class="enroll-section spad set-bg" data-setbg="{%static 'img/enroll-bg.jpg'%}">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5">
+					<div class="section-title text-white">
+						<h3>Зачисление</h3>
+						<p>Начните с нами, чтобы изучить новое. Всё просто как раз и два.</p>
+					</div>
+					<div class="enroll-list text-white">
+						<div class="enroll-list-item">
+							<span>1</span>
+							<h5>Связаться с менеджером</h5>
+							<p>Вы можете обратиться к нам по телефону или встретиться с нами в офисе адрес которого указан в Контактах </p>
+						</div>
+						<div class="enroll-list-item">
+							<span>2</span>
+							<h5>Регистрация</h5>
+							<p>Зарегистрироваться как ученик школы Fly High вы можете по ссылке</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 offset-lg-1 p-lg-0 p-4">
+					<img src="{%static 'img/encroll-img.jpg'%}" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Enroll section end -->
+
+	<!-- Courses section -->
+	<section class="courses-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3><a name="Services">Наши курсы</a></h3>
+				<p>Строим лучший мир, один курс за раз</p>
+			</div>
+			<div class="row">
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/1.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>Лёгкий старт</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2020</div>
+						<h4>Для тех, кто начинает изучение языка с нуля, желает закрепить<br>
+							и улучшить свои базовые знания.
+							Вы расширяете лексический объём и получаете практику грамматических норм.</h4>
+						<h4 class="cource-price">$100<span>/месяц</span></h4>
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/2.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>Разговорный английский</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2018</div>
+						<h4>Чтобы быстро снять языковой барьер, увеличить словарный запас и начать общаться с иностранцами.
+							Вы сможете подбирать точные слова и фразы, а также легко обсуждать интересующие темы.</h4>
+						<h4 class="cource-price">$100<span>/месяц</span></h4>
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/3.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>ЗНО и тесты</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2018</div>
+						<h4>
+							Чтобы успешно сдать ЗНО, пройти тесты и начать работать в международных компаниях.
+							Вы получаете знания по грамматике, работе с текстами и сильную языковую практику.
+						</h4>
+						<h4 class="cource-price">$100<span>/month</span></h4>
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/4.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>Специальный английский для работников авиакомпаний</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2020</div>
+						<h4>Специальный курс для тех, кто желает успешно сдать экзамены.
+							Вы сможете решить поставленные задачи по чтению,
+							аудированию, письму и говорению в отведённое время.</h4>
+						<h4 class="cource-price">$100<span>/месяц</span></h4>
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/5.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>Специальный английский для IT</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2020</div>
+						<h4>Специальный курс для тех, кто желает успешно сдать экзамены.
+							Вы сможете решить поставленные задачи по чтению,
+							аудированию, письму и говорению в отведённое время.</h4>
+						<h4 class="cource-price">$100<span>/месяц</span></h4>
+					</div>
+				</div>
+				<!-- course item -->
+				<div class="col-lg-4 col-md-6 course-item">
+					<div class="course-thumb">
+						<img src="{%static 'img/course/6.jpg'%}" alt="">
+						<div class="course-cat">
+							<span>Специальный английский для туроператоров</span>
+						</div>
+					</div>
+					<div class="course-info">
+						<div class="date"><i class="fa fa-clock-o"></i> 22 Mar 2018</div>
+						<h4>Специальный курс для тех, кто желает успешно сдать экзамены.
+							Вы сможете решить поставленные задачи по чтению,
+							аудированию, письму и говорению в отведённое время.</h4>
+						<h4 class="cource-price">$100<span>/месяц</span></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Courses section end-->
+
+	<!-- Fact section -->
+	<section class="fact-section spad set-bg" data-setbg="{%static 'img/fact-bg.jpg'%}">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-crown"></i>
+					</div>
+					<div class="fact-text">
+						<h2>10</h2>
+						<p>Лет</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-briefcase"></i>
+					</div>
+					<div class="fact-text">
+						<h2>5</h2>
+						<p>Учителей</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-user"></i>
+					</div>
+					<div class="fact-text">
+						<h2>55</h2>
+						<p>Учеников</p>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 fact">
+					<div class="fact-icon">
+						<i class="ti-pencil-alt"></i>
+					</div>
+					<div class="fact-text">
+						<h2>250</h2>
+						<p>Уроков</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Gallery section -->
+	<div class="gallery-section">
+		<div class="gallery">
+			<div class="grid-sizer"></div>
+			<div class="gallery-item gi-big set-bg" data-setbg="{%static 'img/gallery/1.jpg'%}">
+				<a class="img-popup" href="{%static 'img/gallery/1.jpg'%}"><i class="ti-plus"></i></a>
+			</div>
+			<div class="gallery-item set-bg" data-setbg="{%static 'img/gallery/2.jpg'%}">
+				<a class="img-popup" href="{%static 'img/gallery/2.jpg'%}"><i class="ti-plus"></i></a>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
+
+

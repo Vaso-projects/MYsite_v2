@@ -1,0 +1,94 @@
+
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+
+{% block content %}
+	<!-- Header section  -->
+	<nav class="nav-section">
+		<div class="container">
+			<div class="nav-right">
+				<a href="">Регистрация<i class="reg"></i></a>
+				<a href="">Вход<i class="sign_in"></i></a>
+			</div>
+			<ul class="main-menu">
+				<li><a href="/home/index">Главная</a></li>
+				<li class="active"><a href="/home/about">О нас</a></li>
+				<li><a href="/home/blog">Блог</a></li>
+				<li><a href="/home/contact">Контакты</a></li>
+			</ul>
+		</div>
+	</nav>
+	<!-- Header section end -->
+
+	<!-- Breadcrumb section -->
+	<div class="site-breadcrumb">
+		<div class="container">
+			<a href="#"><i class="fa fa-home"></i> Главная</a> <i class="fa fa-angle-right"></i>
+			<span>О нас</span>
+		</div>
+	</div>
+	<!-- Breadcrumb section end -->
+
+
+	<!-- About section -->
+	<section class="about-section spad pt-0">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Добропожатовать в школу</h3>
+				<p>Let children creative and make a different</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-6 about-text">
+					<h5>О нас</h5>
+					<p>Повседневная практика показывает, что консультация с широким активом представляет
+                        собой интересный эксперимент проверки новых предложений. Не следует, однако забывать,
+                        что новая модель организационной деятельности требуют от нас анализа новых предложений.
+                        Повседневная практика показывает, что начало повседневной работы по формированию позиции.
+                    </p>
+					<p>С другой стороны рамки и место обучения кадров играет важную роль в формировании дальнейших направлений развития. </p>
+					<ul class="about-list">
+						<li><i class="fa fa-check-square-o"></i> Наши курсы организуют преподавание и исследования по отдельным предметам.</li>
+						<li><i class="fa fa-check-square-o"></i> Учителя с большим опытом преподавания в разных учебных заведениях.</li>
+						<li><i class="fa fa-check-square-o"></i> Задача организации, в особенности же постоянное информационно-пропагандистское обеспечение</li>
+					</ul>
+				</div>
+				<div class="col-lg-6 pt-5 pt-lg-0">
+					<img src="{%static 'img/about.jpg' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- About section end-->
+
+	<!-- Team section  -->
+	<section class="team-section spad">
+		<div class="container">
+			<div class="section-title text-center">
+				<h3>Наши учителя</h3>
+				<p>Профессиональные стандарты и ожидания</p>
+
+				<div class="col-md-4 col-lg-6">
+					<div class="member">
+						<div class="member-pic set-bg" data-setbg="{%static 'img/member/4.jpg' %}">
+							<div class="member-social">
+								<a href=""><i class="fa fa-facebook"></i></a>
+								<a href=""><i class="fa fa-twitter"></i></a>
+								<a href=""><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+						<h5>Оксана Полищук</h5>
+						<p>Учитель Английского языка</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Team section end -->
+
+{% endblock content %}
