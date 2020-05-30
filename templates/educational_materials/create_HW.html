@@ -1,0 +1,47 @@
+
+{% extends 'layouts/base2.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<link href="{%static 'css\signin.css'%}" rel="stylesheet">
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div style="text-align: left">
+        <form method="post" action="/educational_materials/create" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div id="form_template">
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        <div>{{ field }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <p style="margin-top: 20px">
+                <input id="b1" type="submit" value="Создать" class="btn btn-danger btn-md">
+                <input id="b2" type="reset" value="Очистить" class="btn btn-danger btn-md">
+            </p>
+        </form>
+    </div>
+    <a href="/educational_materials">Вернуться к списку домашних заданий</a>
+    <hr>
+</div>
+<style>
+    .form-group input{
+        width: 50%;
+        height: 30px;
+    }
+    .form-group textarea {
+        width: 50%;
+    }
+    #b1, #b2 {
+        width: 185px;
+    }
+</style>
+{% endblock content %}

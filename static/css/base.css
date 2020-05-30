@@ -1,0 +1,48 @@
+body {
+    padding-top: 3.5rem;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+#logo {
+    background-image: url("../img/bg2.jpg");
+    background-size: cover;
+    padding-left: 28%;
+    color: deeppink;
+}
+
+#logo h1 {
+    color: purple;
+    text-shadow: 3px 3px pink;
+}
+#logo h4 {
+    color: purple;
+}
+#content {
+    margin-top: 30px;
+}
+
+.inp {
+    min-width: 200px;
+}
+
+
+
+.mess{
+    color: red;
+    font-style: italic;
+    font-size: 10pt;
+}

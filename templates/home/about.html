@@ -1,20 +1,20 @@
 
 {% extends 'layouts/base.html' %}
 
-{% load static %}
 
 {% block title %}
     {{ title }}
 {% endblock title %}
 
+{% load static %}
 
 {% block content %}
 	<!-- Header section  -->
 	<nav class="nav-section">
 		<div class="container">
 			<div class="nav-right">
-				<a href="">Регистрация<i class="reg"></i></a>
-				<a href="">Вход<i class="sign_in"></i></a>
+				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
+				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
 			</div>
 			<ul class="main-menu">
 				<li><a href="/home/index">Главная</a></li>

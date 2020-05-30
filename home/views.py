@@ -11,6 +11,11 @@ def about(request):
     return render(request, 'home/about.html', context=data)
 
 
+def blog(request):
+    data = {'title': 'Блог> '}
+    return render(request, 'home/blog.html', context=data)
+
+
 def contact(request):
     data = {'title': 'Контакты '}
     return render(request, 'home/contact.html', context=data)

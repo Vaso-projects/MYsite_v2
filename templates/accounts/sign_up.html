@@ -1,42 +1,62 @@
 
 {% extends 'layouts/base.html' %}
 
-{% load static %}
-
 {% block title %}
     {{ title }}
 {% endblock title %}
 
-{% block content %}
 {% load static %}
+
+{% block content %}
+    <link href="{%static 'css\signin.css'%}" rel="stylesheet">
+
+    <nav class="nav-section">
+		<div class="container">
+			<div class="nav-right">
+				<a id="reg1" style="background:#f6783a;" href="/accounts/sign_up">Регистрация<i></i></a>
+				<a id="reg" href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
+			</div>
+			<ul class="main-menu">
+				<li><a href="/home/">Главная</a></li>
+				<li><a href="/home/about">О нас</a></li>
+				<li><a href="/home/blog">Блог</a></li>
+				<li><a href="/home/contact">Контакты</a></li>
+			</ul>
+		</div>
+	</nav>
+
+<body class="text-center">
+
     <div id="content" class="container">
         <h2>{{ title }}</h2>
         <hr>
-        <form id="form1" action="/accounts/sign_up" method="post" onsubmit="return false">
+        <form id="form1" class="form-signin"  action="/accounts/sign_up" method="post" onsubmit="return false">
             {% csrf_token %}
+
             <p>
                 <label for="login">Логин:</label><br>
-                <input type="text" id="login" name="login" class="inp" required>
+                <input type="text" id="login" name="login" class="form-control" required autofocus>
+
                 <div id="login_mess" class="mess"></div>
             </p>
             <p>
-                <label for="pass1">Пароль:</label><br>
-                <input type="password" id="pass1" name="pass1" class="inp" required>
+                <label class="sr-only-focusable" for="pass1">Пароль:</label><br>
+                <input type="password" id="pass1" name="pass1" class="form-control" required>
             </p>
             <p>
                 <label for="pass2">Повторите пароль:</label><br>
-                <input type="password" id="pass2" name="pass2" class="inp" required>
+                <input type="password" id="pass2" name="pass2" class="form-control" required>
             </p>
             <p>
                 <label for="email">E-Mail:</label><br>
-                <input type="email" id="email" name="email" class="inp" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </p>
-            <p style="margin-top: 30px">
-                <input id="submit" type="submit" value="Отправить" class="btn btn-success" style="width: 150px">
-                <input type="reset" value="Очистить" class="btn btn-success" style="width: 150px">
+            <p id="btnsub" style="margin-top: 30px">
+                <input id="signin" type="submit" value="Отправить" class="btn btn-danger btn-md "   style="width: 180px;">
+                <input id="reset" type="reset" value="Очистить" class="btn btn-danger btn-md " style="width: 180px">
+            </p>
 
-            </p>
         </form>
     </div>
-    <script src="{% static 'js/sign_up.js' %}"></script>
+</body>
 {% endblock content %}
