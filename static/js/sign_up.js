@@ -32,10 +32,11 @@ $(document).ready(() => {
                     if (result.message == "Логин занят") {
                         $("#login_mess").html(result.message);
                         correct1 = false;
-                    } else {
+                        }
+                    else {
                         $("#login_mess").html("");
                         correct1 = true;
-                    }
+                        }
                 }
             });
         } else {
