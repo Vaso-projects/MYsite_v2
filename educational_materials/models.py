@@ -2,10 +2,10 @@ from django.db import models
 from time import strftime
 
 
-class CreateHW(models.Model):
+class Homework(models.Model):
     published = models.DateTimeField(null=False, default=strftime('%Y-%m-%d %H:%M'))
-    title = models.CharField(max_length=100, unique=True, null=False)
-    about = models.TextField(max_length=512, unique=True, null=False)
+    title = models.CharField(max_length=100,  null=False)
+    content = models.TextField(max_length=512,  null=False)
     image = models.FileField(null=False, upload_to='upload/img')
-    file = models.FileField(null=False, upload_to='upload/HW')
+    file = models.FileField(null=False, upload_to='upload/FilesHW')
     source = models.URLField(null=True)

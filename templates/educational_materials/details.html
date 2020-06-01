@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<div id="content" class="container" style="padding-top: 60px;padding-bottom: 100px;">
+    <h2>{{ title }}</h2>
+    <hr>
+    <div class="text-left">
+        <img src="/media/{{ work.image }}" width="50px" align="left" style= "margin-right: 40px;">
+
+        <h4 style="padding-top: 10px;">{{ work.title }}</h4>
+        <p></p>
+        <h4 class="text-left" style="padding-top: 30px; padding-left: 50px;">{{ work.content }}</h4>
+        <h5>{{ work.about }}</h5>
+        <br>
+    <div style="clear:left"></div>
+
+
+        <a style=" padding-left: 50px;" href="/educational_materials">Вернуться к списку заданий </a>
+    </div>
+</div>
+{% endblock content %}

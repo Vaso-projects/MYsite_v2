@@ -10,61 +10,109 @@
 <nav class="nav-section">
 		<div class="container">
 			<div class="nav-right">
-				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
+				<a href="/home/">Выход<i class="sign_in"></i></a>
 			</div>
 			<ul class="main-menu">
-				<li class="active"><a href="/home/index">Главная</a></li>
+				<li><a href="/home/index">Главная</a></li>
 				<li><a href="/home/blog">Блог</a></li>
-				<li><a href="/educational_materials/index">Домашка</a></li>
+				<li class="active"><a href="/educational_materials/index">Домашка</a></li>
 				<li><a href="/educational_materials/educational_materials.html">Учебные материалы</a></li>
 			</ul>
 		</div>
 	</nav>
-<div id="content" class="container">
-    <h2>{{ title }}</h2>
-    <hr>
-    {% if user == 'temp_admin'%}
-        <a href="/educational_materials/create">Добавить домашнее задание</a>
-    {% endif %}
-    <table class="homework" border="0">
-        <tr>
-            <th>Публикация</th>
-            <th>Картинка</th>
-            <th>Название</th>
-            <th>Описание</th>
-            <th>Ссылки</th>
-            <th>Файлы</th>
 
-            <th>Manage</th>
-
-        </tr>
+<div id="content" class="content">
+    <div class="container">
+        <h2>{{ title }}</h2>
+        <hr>
+        {% if user == 'temp_admin'%}
+            <a href="/educational_materials/create">Добавить домашнее задание</a>
+        {% endif %}
         {% for hw in create_hw %}
-            <tr>
-                <td>{{ hw.published }}</td>
-                <td>
-                    <img src="/media/{{ hw.image }}" width="100" height="60">
-                </td>
-                <td>{{ hw.title }}</td>
-                <td>{{ hw.about }}</td>
-                <td>
-                    <a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
-                </td>
-                <td>{{ hw.file }}</td>
-
-                <td>
-                    |
-                    <a href="/educational_materials/details/{{ hw.id }}">Details</a>
-    {% if user == 'temp_admin' %}
-                    |
-                    <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
-                    |
-                    <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
-                    |
-    {% endif %}
-                </td>
-            </tr>
+        <div id="block_v1">
+            <header>{{ hw.title }}</header>
+            <main>
+                <img src="/media/{{ hw.image }}" align="left" style="margin:20px;" width="85" height="85">
+                {{ hw.content }}
+                <div style="clear:Left"></div>
+            </main>
+            <footer><a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
+                        |
+                        <a href="/educational_materials/details/{{ hw.id }}">Details</a>
+                {% if user == 'temp_admin' %}
+                        |
+                        <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
+                        |
+                        <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
+                        |
+                {% endif %}</footer>
+        </div>
         {% endfor %}
-    </table>
+       <!-- <div id="teble_v1">
+            <table>
+                <tr>
+                {% if user == 'moder1' %}
+                    <th>Публикация</th>
+                {% endif %}
+                    <th>Картинка</th>
+                    <th>Описание</th>
+                    <th>Задание</th>
+                    <th>Ссылки</th>
+                    <th>Файлы</th>
+                    <th>Manage</th>
+
+                </tr>
+                {% for hw in create_hw %}
+                <tr>
+                {% if user == 'moder1' %}
+                    <td>{{ hw.published }}</td>
+                {% endif %}
+                    <td class="td1" >
+                        <img src="/media/{{ hw.image }}" width="100" height="85">
+                    </td>
+                    <td class="td2">{{ hw.title }}</td>
+                    <td class="td3">{{ hw.content }}</td>
+                    <td class="td4">
+                        <a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
+                    </td>
+                    <td class="td5">{{ hw.file }}</td>
+
+                    <td class="td6">
+                        |
+                        <a href="/educational_materials/details/{{ hw.id }}">Details</a>
+                {% if user == 'temp_admin' %}
+                        |
+                        <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
+                        |
+                        <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
+                        |
+                {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            </div> -->
+    </div>
+<style>
+#block_v1 {
+    border:1px solid lightgrey;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 15px;
+}
+
+.form-group input{
+    width: 50%;
+    height: 30px;
+}
+.form-group textarea {
+    width: 50%;
+}
+#b1, #b2 {
+    width: 185px;
+}
+</style>
 <!--    <div class="pagination" style="margin-top: 20px">-->
 <!--        <span class="step-links">-->
 <!--            {% if page_obj.has_previous %}-->
@@ -81,7 +129,9 @@
 <!--            {% endif %}-->
 <!--        </span>-->
 <!--    </div>-->
+    <br>
     <hr>
 </div>
+
 
 {% endblock content %}

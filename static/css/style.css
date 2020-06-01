@@ -1157,18 +1157,6 @@ ol {
 	color: #fff;
 }
 
-/*---------------------
-    Homework page
-----------------------*/
-
-.homework{
-    width: 100%;
-}
-
-.homework th, .homework td {
-    padding: 5px 10px;
-    text-align: center;
-}
 
 /*---------------------
 	About page

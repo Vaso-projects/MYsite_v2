@@ -32,7 +32,6 @@
         <hr>
         <form id="form1" class="form-signin"  action="/accounts/sign_up" method="post" onsubmit="return false">
             {% csrf_token %}
-
             <p>
                 <label for="login">Логин:</label><br>
                 <input type="text" id="login" name="login" class="form-control" required autofocus>

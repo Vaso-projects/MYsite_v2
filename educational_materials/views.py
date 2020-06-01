@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
-from .models import CreateHW
-from .forms import CreateHWForm
+from .models import Homework
+from .forms import HomeworkForm
+from .forms import HomeworkForm2
 
 
 def index(request):
     data = dict()
     data['user'] = 'temp_admin'
     data['title'] = 'Учебный материал'
-    data['create_hw'] = CreateHW.objects.all()
+    data['create_hw'] = Homework.objects.all()
     return render(request, 'educational_materials/index.html', context=data)
 
 
@@ -15,22 +16,53 @@ def create(request):
     data = dict()
     data['title'] = 'Создать домашнее задание'
     if request.method == "GET":
-        data['form'] = CreateHWForm()
+        data['form'] = HomeworkForm()
         return render(request, 'educational_materials/create_HW.html', context=data)
     elif request.method == 'POST':
-        filled_form = CreateHWForm(request.POST, request.FILES)
+        filled_form = HomeworkForm(request.POST, request.FILES)
         filled_form.save()
         return redirect('/educational_materials')
 
 
-def edit(request):
-    data = {'title': 'Редактировать домашнее задание'}
+def details(request, homework_id):
+    data = dict()
+    data['title'] = 'Просмотр домашнего задания'
+    data['work'] = Homework.objects.get(id=homework_id)
+    return render(request, 'educational_materials/details.html', context=data)
+
+
+def edit(request, homework_id):
+    data = dict()
+    data['title'] = 'Редактировать домашнее задание'
+    work = Homework.objects.get(id=homework_id)
+    if request.method == "GET":
+        data['form'] = HomeworkForm2(instance=work)
+        data['work'] = work
+        return render(request, 'educational_materials/edit_HW.html', context=data)
+    elif request.method == "POST":
+        form2 = HomeworkForm2(request.POST)
+
+        if form2.is_valid():
+            work.title = form2.cleaned_data['title']
+            work.content = form2.cleaned_data['content']
+            work.file = form2.cleaned_data['file']
+            work.source = form2.cleaned_data['source']
+            work.update()
+        return redirect('/educational_materials')
+
     return render(request, 'educational_materials/edit_HW.html', context=data)
 
 
-def delete(request):
-    data = {'title': 'Удалить домашнее задание'}
-    return render(request, 'educational_materials/delete_HW.html', context=data)
+def delete(request, homework_id):
+    data = dict()
+    data['title'] = 'Удалить домашнее задание'
+    work = Homework.objects.get(id=homework_id)
+    if request.method == "GET":
+        data['work'] = work
+        return render(request, 'educational_materials/delete_HW.html', context=data)
+    elif request.method == "POST":
+        work.delete()
+    return redirect('/educational_materials/', context=data)
 
 
 def del_v(request):

@@ -1,9 +1,14 @@
 from django import forms
-from .models import CreateHW
+from .models import Homework
 
 
-class CreateHWForm(forms.ModelForm):
+class HomeworkForm(forms.ModelForm):
     class Meta:
-        model = CreateHW
-        fields = ('published', 'title', 'about', 'image', 'file', 'source',)
+        model = Homework
+        fields = ('published', 'title', 'image', 'content',  'file', 'source',)
 
+
+class HomeworkForm2(forms.ModelForm):
+    class Meta:
+        model = Homework
+        fields = ('title', 'content', 'file', 'source',)

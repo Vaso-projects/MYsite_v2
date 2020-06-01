@@ -13,7 +13,7 @@
     <h2>{{ title }}</h2>
     <hr>
     <div style="text-align: left">
-        <form method="post" action="/educational_materials/create" enctype="multipart/form-data">
+        <form class="form-control-plaintext" method="post" action="/educational_materials/create" enctype="multipart/form-data">
             {% csrf_token %}
             <div id="form_template">
                 {% for field in form %}
