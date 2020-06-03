@@ -10,7 +10,17 @@
 {% include 'layouts/nav.html' %}
 
 {% block content %}
+<div id="content" class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+</div>
 
-
-
+    <div class="login-form">
+        <form action="{% url 'login1' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <p><input type="submit" value="Log-in"></p>
+        </form>
+    </div>
 {% endblock content %}

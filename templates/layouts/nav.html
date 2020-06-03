@@ -4,11 +4,11 @@
 	<div class="container">
 		<div class="main-menu">
 			<div class="nav-right">
-				{% if user != None %}
-				<a href="">Привет  {{user.username}}!<i class="reg"></i></a>
-				<a href="/accounts/sign_out">Выход<i class="sign_in"></i></a>
+				{% if request.user.is_authenticated %}
+				<a href="#">Привет  {{user.username}}!<i class="reg"></i></a>
+				<a href="/accounts/logout1">Выход<i class="sign_in"></i></a>
 				{% endif %}
-				{% if user == None %}
+				{% if request.user.is_anonymous %}
 				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
 				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
 				{% endif %}

@@ -67,12 +67,12 @@ def sign_in(request):
             return render(request, 'accounts/report.html', context=data)
         else:
             login(request, user)
-            return redirect('templates/educational_materials/educational_materials.html')
+            return redirect('/')
 
 
 def logout1(request):
-    data = {'title': 'Выход'}
-    return render(request, 'accounts/logout.html', context=data)
+    logout(request)
+    return redirect('/')
 
 
 def ajax_reg(request):
