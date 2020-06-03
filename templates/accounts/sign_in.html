@@ -1,7 +1,6 @@
 
 {% extends 'layouts/base2.html' %}
 
-
 {% block title %}
     {{ title }}
 {% endblock title %}
@@ -9,47 +8,30 @@
 {% load static %}
 
 {% block content %}
-
-  <nav class="nav-section">
-		<div class="container">
-			<div class="nav-right">
-				<a href="/accounts/sign_up">Регистрация<i></i></a>
-				<a style="background:#f6783a;" href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
-			</div>
-			<ul class="main-menu">
-				<li><a href="/home/">Главная</a></li>
-				<li><a href="/home/about">О нас</a></li>
-				<li><a href="/home/blog">Блог</a></li>
-				<li><a href="/home/contact">Контакты</a></li>
-			</ul>
-		</div>
-	</nav>
-
   <link href="{%static 'css\signin.css'%}" rel="stylesheet">
 
   <body class="text-center">
-    <form class="form-signin">
+    <form class="form-signin" id="form2" action="/accounts/sign_in" method="post">
       {% csrf_token %}
 
       <img class="mb-4" src="{%static 'img\logo3.png'%}" alt="" width="632" height="140">
 
       <h1 class="h3 mb-3 font-weight-normal">{{title}}</h1>
 
-
-      <input type="text" id="inputUsername" class="form-control" placeholder="Имя пользователя" style="padding-bottom:10px;" required autofocus><br>
-
-      <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required>
+      <input type="text" id="login" name="login" class="form-control" placeholder="Имя пользователя" style="padding-bottom:10px;" required >
+        <br>
+      <input type="password" id="inputPassword" name="pass1" class="form-control" placeholder="Пароль" required>
 
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="Запомнить"> Запомнить
+          <input type="checkbox" value="a3"> Запомнить
         </label>
       </div>
-      <button id="signin" class="btn btn-lg btn-danger btn-block" type="submit">Вход</button>
-
+      <input type="submit" value="Войти" class="btn btn-danger btn-md" style="width: 185px">
         <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-
     </form>
+<script src="{% static 'js/sign_up.js' %}"></script>
+
   </body>
 
 {% endblock content %}

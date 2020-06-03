@@ -7,22 +7,9 @@
 
 {% load static %}
 
+{% include 'layouts/nav.html' %}
+
 {% block content %}
-	<nav class="nav-section">
-		<div class="container">
-			<div class="nav-right">
-				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
-				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
-			</div>
-			<ul class="main-menu">
-				<li class="active"><a href="/home/index">Главная</a></li>
-				<li><a href="/home/about">О нас</a></li>
-				<li><a href="/home/blog">Блог</a></li>
-				<li><a href="/educational_materials/index">Домашка</a></li>
-				<li><a href="/home/contact">Контакты</a></li>
-			</ul>
-		</div>
-	</nav>
 <!-- Hero section -->
 	<section class="hero-section">
 		<div class="hero-slider owl-carousel">
@@ -321,6 +308,11 @@
 			</div>
 		</div>
 	</div>
+<script>
+	var el = document.querySelector('.main-menu #li1');
+	el.classList.add("active");
+<!--el.className += 'active';-->
+</script>
 
 {% endblock content %}
 

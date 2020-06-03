@@ -9,7 +9,7 @@ def index(request):
     data['user'] = 'temp_admin'
     data['title'] = 'Учебный материал'
     data['create_hw'] = Homework.objects.all()
-    return render(request, 'educational_materials/index.html', context=data)
+    return render(request, '/educational_materials/index.html', context=data)
 
 
 def create(request):
@@ -22,6 +22,16 @@ def create(request):
         filled_form = HomeworkForm(request.POST, request.FILES)
         filled_form.save()
         return redirect('/educational_materials')
+
+
+def add_video(request):
+    data = {'title': 'Добавить видео'}
+    return render(request, 'educational_materials/add_video.html', context=data)
+
+
+def add_source(request):
+    data = {'title': 'Добавить ссылку'}
+    return render(request, 'educational_materials/add_source.html', context=data)
 
 
 def details(request, homework_id):
@@ -76,13 +86,20 @@ def del_a(request):
 
 
 def homework(request):
-    data = {'title': 'Домашнее задание'}
+    data = dict()
+    data['title'] = 'Учебный материал'
     return render(request, 'educational_materials/homework.html', context=data)
 
 
 def video(request):
     data = {'title': 'Видео'}
     return render(request, 'educational_materials/video.html', context=data)
+
+
+def source(request):
+    data = dict()
+    data['title'] = 'Рекомендованные ссылки'
+    return render(request, 'educational_materials/source.html', context=data)
 
 
 def audio(request):
@@ -100,17 +117,7 @@ def add_audio(request):
     return render(request, 'educational_materials/add_audio.html', context=data)
 
 
-def add_video(request):
-    data = {'title': 'Добавить видео'}
-    return render(request, 'educational_materials/add_video.html', context=data)
-
-
-def add_source(request):
-    data = {'title': 'Добавить ссылку'}
-    return render(request, 'educational_materials/add_source.html', context=data)
-
-
 def educational_materials(request):
     data = {'title': 'Учебные материалы'}
-    return render(request, 'educational_materials/educational_materials.html', context=data)
+    return render(request, '/educational_materials/educational_materials.html', context=data)
 

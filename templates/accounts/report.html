@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% load static %}
+
+{% include 'layouts/nav.html' %}
+
+{% block content %}
+
+<div id="content" class="container" style="text-align: center;">
+    <h2>{{ title }}</h2>
+    <hr>
+    <h5 style="color: {{ color1 }}">
+        {{ report1 }}
+    </h5>
+    <hr>
+</div>
+{% endblock content %}
+

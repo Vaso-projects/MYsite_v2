@@ -14,48 +14,65 @@ def sign_up(request):
     elif request.method == 'POST':
         # Извлечение данных
         username1 = request.POST.get('login')
-        password = request.POST.get('pass1')
+        password1 = request.POST.get('pass1')
         password2 = request.POST.get('pass2')
         email = request.POST.get('email')
 
         # Валидация
-        if password != password2:
+        if password1 != password2:
             data['color1'] = 'red'
             data['report1'] = 'Пароли не совпадают'
         # Остальная Валидация
-
+        #
         else:
             data['login'] = username1
-            data['pass1'] = password
+            data['pass1'] = password1
             data['pass2'] = password2
             data['email'] = email
+
             # Добавление пользователя
-            username1 = User.objects.create_user(username1, email, password)
+            username1 = User.objects.create_user(username1, email, password1)
             username1.save()
 
-        data['title'] = 'Отчёт о Регистрации'
+        data['title'] = 'Отчёт о регистрации'
+
         if username1 is None:
             data['color1'] = 'red'
             data['report1'] = 'В регистрация отказанно'
         else:
             data['color1'] = 'green'
             data['report1'] = 'Регистрация завершина'
-    return render(request, 'accounts/sign_up_res.html', context=data)
+    return render(request, 'accounts/report.html', context=data)
 
 
-def sign_up_res(request):
+def report(request):
     data = {'title': 'Результат регистрации'}
-    return render(request, 'accounts/sign_up_res.html', context=data)
+    return render(request, 'accounts/report.html', context=data)
 
 
 def sign_in(request):
-    data = {'title': 'Авторизация'}
-    return render(request, 'accounts/sign_in.html', context=data)
+    data = dict()
+    if request.method == 'GET':
+        data['title'] = 'Авторизация'
+        return render(request, 'accounts/sign_in.html', context=data)
+    elif request.method == 'POST':
+        username1 = request.POST.get('login')
+        password1 = request.POST.get('pass1')
+        user = authenticate(request, username=username1, password=password1)
+
+        if user is None:
+            data['color1'] = 'red'
+            data['report1'] = 'Вы не зарегистрированы'
+            data['title'] = 'Отчёт об авторизации'
+            return render(request, 'accounts/report.html', context=data)
+        else:
+            login(request, user)
+            return redirect('templates/educational_materials/educational_materials.html')
 
 
-def sign_out(request):
+def logout1(request):
     data = {'title': 'Выход'}
-    return render(request, 'accounts/sign_out.html', context=data)
+    return render(request, 'accounts/logout.html', context=data)
 
 
 def ajax_reg(request):

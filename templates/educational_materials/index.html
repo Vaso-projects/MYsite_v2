@@ -7,20 +7,6 @@
 {% load static %}
 
 {% block content %}
-<nav class="nav-section">
-		<div class="container">
-			<div class="nav-right">
-				<a href="/home/">Выход<i class="sign_in"></i></a>
-			</div>
-			<ul class="main-menu">
-				<li><a href="/home/index">Главная</a></li>
-				<li><a href="/home/blog">Блог</a></li>
-				<li class="active"><a href="/educational_materials/index">Домашка</a></li>
-				<li><a href="/educational_materials/educational_materials.html">Учебные материалы</a></li>
-			</ul>
-		</div>
-	</nav>
-
 <div id="content" class="content">
     <div class="container">
         <h2>{{ title }}</h2>
@@ -133,5 +119,9 @@
     <hr>
 </div>
 
-
+<script>
+	var el = document.querySelector('.main-menu #li4');
+	el.classList.add("active");
+<!--el.className += 'active';-->
+</script>
 {% endblock content %}

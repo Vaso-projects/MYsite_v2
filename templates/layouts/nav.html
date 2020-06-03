@@ -1,16 +1,39 @@
 {% load static %}
+
 <nav class="nav-section">
-		<div class="container">
+	<div class="container">
+		<div class="main-menu">
 			<div class="nav-right">
-				<a href="">Регистрация<i class="reg"></i></a>
-				<a href="">Вход<i class="sign_in"></i></a>
+				{% if user != None %}
+				<a href="">Привет  {{user.username}}!<i class="reg"></i></a>
+				<a href="/accounts/sign_out">Выход<i class="sign_in"></i></a>
+				{% endif %}
+				{% if user == None %}
+				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
+				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
+				{% endif %}
 			</div>
-			<ul class="main-menu">
-				<li class="active"><a href="index.html">Главная</a></li>
-				<li><a href="/home/about">О нас</a></li>
-				<li><a href="/home/blog">Блог</a></li>
-				<li><a href="/home/contact">Контакты</a></li>
-			</ul>
 		</div>
-	</nav>
+		<ul class="main-menu">
+			<li id="li1"><a href="/home/index">Главная</a></li>
+			<li id="li2"><a href="/home/about">О нас</a></li>
+			<li id="li3"><a href="/home/blog">Блог</a></li>
+			{% if user != None %}
+			<li id="li4"><a class="nav-link dropdown-toggle" href=""
+				id="navbardrop" data-toggle="dropdown" >Учебные материалы
+      				</a>
+      				<div class="dropdown-menu">
+						<a class="dropdown-item" href="/educational_materials/homework">Домашнее задание</a>
+						<a class="dropdown-item" href="/educational_materials/textbooks">Учебники</a>
+						<a class="dropdown-item" href="/educational_materials/video">Видео мотериал</a>
+						<a class="dropdown-item" href="/educational_materials/audio">Аудио материалы</a>
+						<a class="dropdown-item" href="/educational_materials/source">Рекомендуемые преподавателем</a>
+
+      				</div>
+			</li>
+			{% endif %}
+			<li id="li5"><a href="/home/contact">Контакты</a></li>
+		</ul>
+	</div>
+</nav>
 

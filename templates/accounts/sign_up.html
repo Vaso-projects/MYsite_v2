@@ -1,5 +1,5 @@
 
-{% extends 'layouts/base.html' %}
+{% extends 'layouts/base2.html' %}
 
 {% block title %}
     {{ title }}
@@ -7,23 +7,9 @@
 
 {% load static %}
 
+
 {% block content %}
     <link href="{%static 'css\signin.css'%}" rel="stylesheet">
-
-    <nav class="nav-section">
-		<div class="container">
-			<div class="nav-right">
-				<a id="reg1" style="background:#f6783a;" href="/accounts/sign_up">Регистрация<i></i></a>
-				<a id="reg" href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
-			</div>
-			<ul class="main-menu">
-				<li><a href="/home/">Главная</a></li>
-				<li><a href="/home/about">О нас</a></li>
-				<li><a href="/home/blog">Блог</a></li>
-				<li><a href="/home/contact">Контакты</a></li>
-			</ul>
-		</div>
-	</nav>
 
 <body class="text-center">
 

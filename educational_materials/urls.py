@@ -1,7 +1,7 @@
 from django.urls import path, re_path
 from .views import index, video,  textbooks, create,\
     edit, delete, audio, add_audio, add_source, add_video, del_a,\
-    del_v, details
+    del_v, details, educational_materials, homework, source
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -21,6 +21,9 @@ urlpatterns = [
     path('del_v', del_v),
     path('textbooks', textbooks),
     path('video', video),
+    path('educational_materials', educational_materials),
+    path('homework', homework),
+    path('source', source)
 ]
 
 if settings.DEBUG:

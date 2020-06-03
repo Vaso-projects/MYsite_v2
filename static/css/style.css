@@ -233,14 +233,16 @@ ol {
 -----------------------*/
 
 .header-section {
-	padding: 20px 0;
+	padding: 10px 0;
 	overflow: hidden;
+
 }
 
 .site-logo {
 	display: inline-block;
 	margin-right: 50px;
-	padding-top: 20px;
+
+	padding-bottom: 0px;
 }
 
 .header-info {
@@ -250,7 +252,8 @@ ol {
 
 .header-info .hf-item {
 	display: inline-block;
-	margin-left: 35px;
+	padding-top: 15px;
+	margin-left: 45px;
 }
 
 .header-info .hf-item i {
@@ -314,7 +317,7 @@ ol {
 	margin-left: 30px;
 	font-size: 13px;
 }
-.nav-right a  {
+.nav-right a {
     display: inline-block;
 	color: #fff;
 	font-size: 13px;
@@ -334,13 +337,20 @@ ol {
 .nav-right .active a {
 	background: #f6783a;
 }
+.dropdown-item{
+    width:auto;
+    display: inline-block;
+    background:#020031;
+
+
+}
 
 .main-menu {
 	list-style: none;
 }
 
 .main-menu li {
-	display: inline;
+	display: inline-block;
 }
 
 .main-menu li a {
@@ -1769,7 +1779,8 @@ ol {
 		display: none;
 	}
 	.site-logo {
-		padding: 15px 0;
+		padding-top: 25px 0;
+		margin-right: 15px;
 	}
 	.nav-switch {
 		position: absolute;

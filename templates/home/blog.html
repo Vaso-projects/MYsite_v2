@@ -8,22 +8,6 @@
 {% load static %}
 
 {% block content %}
-	<!-- Header section  -->
-	<nav class="nav-section">
-		<div class="container">
-			<div class="nav-right">
-				<a href="/accounts/sign_up">Регистрация<i class="reg"></i></a>
-				<a href="/accounts/sign_in">Вход<i class="sign_in"></i></a>
-			</div>
-			<ul class="main-menu">
-				<li><a href="/home/index">Главная</a></li>
-				<li><a href="/home/about">О нас</a></li>
-				<li class="active"><a href="/home/blog">Блог</a></li>
-				<li><a href="/home/contact">Контакты</a></li>
-			</ul>
-		</div>
-	</nav>
-	<!-- Header section end -->
 
 	<!-- Breadcrumb section -->
 	<div class="site-breadcrumb">
@@ -33,7 +17,6 @@
 		</div>
 	</div>
 	<!-- Breadcrumb section end -->
-
 
 	<!-- Blog page section  -->
 	<section class="blog-page-section spad pt-0">
@@ -213,5 +196,10 @@
 		</div>
 	</section>
 	<!-- Newsletter section end -->
+<script>
+	var el = document.querySelector('.main-menu #li3');
+	el.classList.add("active");
+<!--el.className += 'active';-->
+</script>
 {% endblock content %}
 
