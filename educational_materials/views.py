@@ -6,10 +6,11 @@ from .forms import HomeworkForm2
 
 def index(request):
     data = dict()
-    data['user'] = 'temp_admin'
-    data['title'] = 'Учебный материал'
+    data['user'] = 'Content_manager'
+    data['title'] = 'Наполнение Учебными материалами'
     data['create_hw'] = Homework.objects.all()
-    return render(request, '/educational_materials/index.html', context=data)
+
+    return render(request, 'educational_materials/index.html', context=data)
 
 
 def create(request):

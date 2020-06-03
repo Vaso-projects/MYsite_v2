@@ -16,6 +16,11 @@ body {
         font-size: 3.5rem;
     }
 }
+.card-img-top{
+
+    height=auto;
+    padding: 25px;
+}
 
 #logo {
     background-image: url("../img/bg2.jpg");

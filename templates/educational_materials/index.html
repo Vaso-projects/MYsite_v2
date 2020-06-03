@@ -7,32 +7,35 @@
 {% load static %}
 
 {% block content %}
-<div id="content" class="content">
-    <div class="container">
+
+    <div class="col-sm-6">
         <h2>{{ title }}</h2>
         <hr>
-        {% if user == 'temp_admin'%}
+            {% if user == 'Content_manager'%}
             <a href="/educational_materials/create">Добавить домашнее задание</a>
-        {% endif %}
-        {% for hw in create_hw %}
-        <div id="block_v1">
-            <header>{{ hw.title }}</header>
-            <main>
-                <img src="/media/{{ hw.image }}" align="left" style="margin:20px;" width="85" height="85">
-                {{ hw.content }}
-                <div style="clear:Left"></div>
-            </main>
-            <footer><a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
+            {% endif %}
+
+                {% for hw in create_hw %}
+                <div class="card" style="width: 18rem;">
+                    <img src="/media/{{ hw.image }}" class="card-img-top" >
+                    <header class="card-header">{{ hw.title }}</header>
+                    <main class="card-body">
+                        {{ hw.content }}
+                        |
+                        <a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
+                    </main>
+                    <footer class="card-footer">
                         |
                         <a href="/educational_materials/details/{{ hw.id }}">Details</a>
-                {% if user == 'temp_admin' %}
                         |
+                        {% if user == 'Content_manager' %}
                         <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
                         |
                         <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
                         |
-                {% endif %}</footer>
-        </div>
+                        {% endif %}
+                    </footer>
+                </div>
         {% endfor %}
        <!-- <div id="teble_v1">
             <table>
@@ -81,24 +84,13 @@
             </div> -->
     </div>
 <style>
-#block_v1 {
-    border:1px solid lightgrey;
-    border-radius: 10px;
-    margin: 5px;
-    padding: 15px;
+.card-img-top  {
+
 }
 
-.form-group input{
-    width: 50%;
-    height: 30px;
-}
-.form-group textarea {
-    width: 50%;
-}
-#b1, #b2 {
-    width: 185px;
-}
 </style>
+
+
 <!--    <div class="pagination" style="margin-top: 20px">-->
 <!--        <span class="step-links">-->
 <!--            {% if page_obj.has_previous %}-->
@@ -122,6 +114,5 @@
 <script>
 	var el = document.querySelector('.main-menu #li4');
 	el.classList.add("active");
-<!--el.className += 'active';-->
 </script>
 {% endblock content %}
