@@ -18,7 +18,7 @@
 			<li id="li1"><a href="/home/index">Главная</a></li>
 			<li id="li2"><a href="/home/about">О нас</a></li>
 			<li id="li3"><a href="/home/blog">Блог</a></li>
-			{% if user != None %}
+			{% if request.user.is_authenticated %}
 			<li id="li4"><a class="nav-link dropdown-toggle" href=""
 				id="navbardrop" data-toggle="dropdown" >Учебные материалы
       				</a>
