@@ -8,80 +8,38 @@
 
 {% block content %}
 
-    <div class="col-sm-6">
+    <div class="container">
         <h2>{{ title }}</h2>
         <hr>
-            {% if user == 'Content_manager'%}
+        {% if user == 'Content_manager'%}
             <a href="/educational_materials/create">Добавить домашнее задание</a>
-            {% endif %}
+        {% endif %}
+        <div class="card-group">
+            <hr>
+            {% for hw in create_hw %}
+                <div class="col-3">
+                    <div class="card" >
+                        <img src="/media/{{ hw.image }}" class="card-img-top" style="width: 3.5rem; padding:7px;">
+                        <header class="card-header">{{ hw.title }}</header>
+                        <main class="card-body">
+                            {{ hw.about }}
+                            <hr>
+                            <a href="{{ hw.source }}" target="_blank" class="card-link">{{ hw.source }}</a>
 
-                {% for hw in create_hw %}
-                <div class="card" style="width: 18rem;">
-                    <img src="/media/{{ hw.image }}" class="card-img-top" >
-                    <header class="card-header">{{ hw.title }}</header>
-                    <main class="card-body">
-                        {{ hw.content }}
-                        |
-                        <a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
-                    </main>
-                    <footer class="card-footer">
-                        |
-                        <a href="/educational_materials/details/{{ hw.id }}">Details</a>
-                        |
-                        {% if user == 'Content_manager' %}
-                        <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
-                        |
-                        <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
-                        |
-                        {% endif %}
-                    </footer>
+                        </main>
+                        <footer class="card-footer">
+
+                            <a href="/educational_materials/details/{{ hw.id }}" class="card-link">Подробнее</a>
+                            {% if user == 'Content_manager' %}
+                            <a href="/educational_materials/edit/{{ hw.id }}" class="card-link">Редактор</a>
+                            <a href="/educational_materials/delete/{{ hw.id }}" class="card-link">Удалить</a>
+                            {% endif %}
+                        </footer>
+                    </div>
                 </div>
-        {% endfor %}
-       <!-- <div id="teble_v1">
-            <table>
-                <tr>
-                {% if user == 'moder1' %}
-                    <th>Публикация</th>
-                {% endif %}
-                    <th>Картинка</th>
-                    <th>Описание</th>
-                    <th>Задание</th>
-                    <th>Ссылки</th>
-                    <th>Файлы</th>
-                    <th>Manage</th>
+            {% endfor %}
+        </div>
 
-                </tr>
-                {% for hw in create_hw %}
-                <tr>
-                {% if user == 'moder1' %}
-                    <td>{{ hw.published }}</td>
-                {% endif %}
-                    <td class="td1" >
-                        <img src="/media/{{ hw.image }}" width="100" height="85">
-                    </td>
-                    <td class="td2">{{ hw.title }}</td>
-                    <td class="td3">{{ hw.content }}</td>
-                    <td class="td4">
-                        <a href="{{ hw.source }}" target="_blank">{{ hw.source }}</a>
-                    </td>
-                    <td class="td5">{{ hw.file }}</td>
-
-                    <td class="td6">
-                        |
-                        <a href="/educational_materials/details/{{ hw.id }}">Details</a>
-                {% if user == 'temp_admin' %}
-                        |
-                        <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
-                        |
-                        <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
-                        |
-                {% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-
-            </table>
-            </div> -->
     </div>
 <style>
 .card-img-top  {

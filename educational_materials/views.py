@@ -55,6 +55,7 @@ def edit(request, homework_id):
 
         if form2.is_valid():
             work.title = form2.cleaned_data['title']
+            work.about = form2.cleaned_data['about']
             work.content = form2.cleaned_data['content']
             work.file = form2.cleaned_data['file']
             work.source = form2.cleaned_data['source']

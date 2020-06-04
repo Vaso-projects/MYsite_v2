@@ -12,22 +12,25 @@
     <h2>{{ title }}</h2>
     <hr>
     <div class="text-left">
-        <img src="/media/{{ work.image }}" class="card-img-top" width="50px" align="left" style= "margin-right: 40px;">
-
-        <h4 style="padding-top: 10px;">{{ work.title }}</h4>
-        <p></p>
-        <h4 class="text-left" style="padding-top: 30px; padding-left: 50px;">{{ work.content }}</h4>
+        <img src="/media/{{ work.image }}" class="img" width="50px" align="left" style= "margin-right: 40px;">
+        <h4 style="padding-top: 5px;">{{ work.title }}</h4>
         <h5>{{ work.about }}</h5>
+
+        <h4 class="text-left" style="padding-top: 30px; padding-left: 50px;">{{ work.content }}</h4>
+
         <br>
         {% if user == 'Content_manager' %}
-        <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
-        |
-        <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
-        |
+
+            <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
+            |
+            <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
+            |
+        {% endif %}
     <div style="clear:left"></div>
 
 
         <a style=" padding-left: 50px;" href="/educational_materials">Вернуться к списку заданий </a>
     </div>
 </div>
+
 {% endblock content %}
