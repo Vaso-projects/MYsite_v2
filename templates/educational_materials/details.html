@@ -16,21 +16,18 @@
         <h4 style="padding-top: 5px;">{{ work.title }}</h4>
         <h5>{{ work.about }}</h5>
 
-        <h4 class="text-left" style="padding-top: 30px; padding-left: 50px;">{{ work.content }}</h4>
+        <h4 class="text-left" style="padding-top: 30px; padding-left: 60px;">{{ work.content }}</h4>
 
-        <br>
-        {% if user == 'Content_manager' %}
+        {% if login == Content_manager %}
+            <div style="padding-top:20px; padding-left: 60px;">
+                <a href="/educational_materials/edit/{{ work.id }}" class="card-link">Редактор</a>
+                <a href="/educational_materials/delete/{{ work.id }}" class="card-link">Удалить</a>
 
-            <a href="/educational_materials/edit/{{ hw.id }}">Edit</a>
-            |
-            <a href="/educational_materials/delete/{{ hw.id }}">Delete</a>
-            |
         {% endif %}
-    <div style="clear:left"></div>
-
-
-        <a style=" padding-left: 50px;" href="/educational_materials">Вернуться к списку заданий </a>
-    </div>
+                <a href="/educational_materials" class="card-link" >Вернуться к списку заданий </a>
+            </div>
+        </div>
 </div>
+
 
 {% endblock content %}

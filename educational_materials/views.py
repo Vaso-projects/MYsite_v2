@@ -6,7 +6,6 @@ from .forms import HomeworkForm2
 
 def index(request):
     data = dict()
-    data['user'] = 'Content_manager'
     data['title'] = 'Наполнение Учебными материалами'
     data['create_hw'] = Homework.objects.all()
 
@@ -37,6 +36,7 @@ def add_source(request):
 
 def details(request, homework_id):
     data = dict()
+    data['user'] = 'Content_manager'
     data['title'] = 'Просмотр домашнего задания'
     data['work'] = Homework.objects.get(id=homework_id)
     return render(request, 'educational_materials/details.html', context=data)

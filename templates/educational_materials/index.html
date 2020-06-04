@@ -1,3 +1,4 @@
+
 {% extends 'layouts/base.html' %}
 
 {% block title %}
@@ -8,46 +9,39 @@
 
 {% block content %}
 
-    <div class="container">
-        <h2>{{ title }}</h2>
+<div class="container">
+    <h2>{{ title }}</h2>
+    <hr>
+    {% if login == Content_manager %}
+        <a href="/educational_materials/create">Добавить домашнее задание</a>
+    {% endif %}
+    <div class="card-group">
         <hr>
-        {% if user == 'Content_manager'%}
-            <a href="/educational_materials/create">Добавить домашнее задание</a>
-        {% endif %}
-        <div class="card-group">
-            <hr>
-            {% for hw in create_hw %}
-                <div class="col-3">
-                    <div class="card" >
-                        <img src="/media/{{ hw.image }}" class="card-img-top" style="width: 3.5rem; padding:7px;">
-                        <header class="card-header">{{ hw.title }}</header>
-                        <main class="card-body">
-                            {{ hw.about }}
-                            <hr>
-                            <a href="{{ hw.source }}" target="_blank" class="card-link">{{ hw.source }}</a>
+        {% for hw in create_hw %}
+            <div class="col-4">
+                <div class="card" >
+                    <img src="/media/{{ hw.image }}" class="card-img-top" style="width: 4rem; padding:7px;">
+                    <header class="card-header">{{ hw.title }}</header>
+                    <main class="card-body">
+                        {{ hw.about }}
+                        <hr>
+                        <a href="{{ hw.source }}" target="_blank" class="card-link">{{ hw.source }}</a>
 
-                        </main>
-                        <footer class="card-footer">
-
+                    </main>
+                    <footer class="card-footer">
                             <a href="/educational_materials/details/{{ hw.id }}" class="card-link">Подробнее</a>
-                            {% if user == 'Content_manager' %}
+                        {% if login == Content_manager %}
                             <a href="/educational_materials/edit/{{ hw.id }}" class="card-link">Редактор</a>
                             <a href="/educational_materials/delete/{{ hw.id }}" class="card-link">Удалить</a>
-                            {% endif %}
-                        </footer>
-                    </div>
+                        {% endif %}
+                    </footer>
                 </div>
-            {% endfor %}
-        </div>
-
+            </div>
+        {% endfor %}
+        <hr>
     </div>
-<style>
-.card-img-top  {
 
-}
-
-</style>
-
+</div>
 
 <!--    <div class="pagination" style="margin-top: 20px">-->
 <!--        <span class="step-links">-->
