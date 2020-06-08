@@ -21,15 +21,19 @@
             <div class="col-4">
                 <div class="card" >
                     <img src="/media/{{ hw.image }}" class="card-img-top" style="width: 4rem; padding:7px;">
-                    <header class="card-header">{{ hw.title }}</header>
+                    <header class="card-header">{{ hw.topic }}</header>
                     <main class="card-body">
+
                         {{ hw.about }}
+
+                        <a href="{{ hw.file }}" target="_blank" class="card-link" download={{hw.file}}>{{ hw.file }}</a>)
+
                         <hr>
                         <a href="{{ hw.source }}" target="_blank" class="card-link">{{ hw.source }}</a>
 
                     </main>
                     <footer class="card-footer">
-                            <a href="/educational_materials/details/{{ hw.id }}" class="card-link">Подробнее</a>
+                            <a href="/educational_materials/details/{{ hw.id }}" class="card-link" >Подробнее</a>
                         {% if login == Content_manager %}
                             <a href="/educational_materials/edit/{{ hw.id }}" class="card-link">Редактор</a>
                             <a href="/educational_materials/delete/{{ hw.id }}" class="card-link">Удалить</a>

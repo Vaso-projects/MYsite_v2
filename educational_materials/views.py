@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Homework
-from .forms import HomeworkForm
-from .forms import HomeworkForm2
+from .models import Homework, Video, Audio, Textbooks
+from .forms import HomeworkForm, HomeworkForm2
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
+from django.http import JsonResponse
 
 
 def index(request):
@@ -54,12 +56,11 @@ def edit(request, homework_id):
         form2 = HomeworkForm2(request.POST)
 
         if form2.is_valid():
-            work.title = form2.cleaned_data['title']
+            work.title = form2.cleaned_data['topic']
             work.about = form2.cleaned_data['about']
             work.content = form2.cleaned_data['content']
-            work.file = form2.cleaned_data['file']
             work.source = form2.cleaned_data['source']
-            work.update()
+            work.save()
         return redirect('/educational_materials')
 
     return render(request, 'educational_materials/edit_HW.html', context=data)

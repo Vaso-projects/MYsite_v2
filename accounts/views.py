@@ -75,6 +75,11 @@ def logout1(request):
     return redirect('/')
 
 
+def profile(request):
+    data = {'title': 'Профиль пользователя'}
+    return render(request, 'accounts/report.html', context=data)
+
+
 def ajax_reg(request):
     response = dict()
     login_y = request.GET.get('login')
