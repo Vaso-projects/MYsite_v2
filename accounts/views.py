@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from hashlib import md5
 from datetime import datetime
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 
@@ -77,7 +77,7 @@ def logout1(request):
 
 def profile(request):
     data = {'title': 'Профиль пользователя'}
-    return render(request, 'accounts/report.html', context=data)
+    return render(request, 'accounts/profile.html', context=data)
 
 
 def ajax_reg(request):

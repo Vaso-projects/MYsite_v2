@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% load static %}
+
+{% block content %}
+<style>
+    .Users {
+        padding-left: 150px;
+    }
+    .Users th, .Users td {
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+
+    </style>
+
+<body class="bg-light">
+
+    <div class="container">
+        <div class="py-5 text-center">
+            <H4>Ваши студенты</H4>
+        </div>
+
+            <table class="table" >
+                <tr>
+                    <th></th>
+                    <th>id</th>
+                    <th>Логин</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Email</th>
+                    <th>Группа</th>
+                    <th>Адресс</th>
+                </tr>
+            {% for users in page_obj %}
+                <tr>
+                    <td><input type="checkbox" name="key" class="checkbox" ></td>
+                    <td>{{ users.id }}</td>
+                    <td>{{ users.username }}</td>
+                    <td>{{ users.first_name }}</td>
+                    <td>{{ users.last_name }}</td>
+                    <td>{{ users.email }}</td>
+                    <td>{{ users.groups }}</td>
+                    <td>{{ groups }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+        <div class="pagination" style="margin-top: 20px">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <script>
+	var el = document.querySelector('.main-menu #li1_3, #li1_4, #li1_2');
+	el.classList.add("active");
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.5/assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <script src="{% static 'js/form-validation.js' %}"></script>
+
+
+{% endblock content %}

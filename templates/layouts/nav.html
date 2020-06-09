@@ -3,7 +3,8 @@
 <nav class="nav-section">
 	<div class="container">
 		<div class="main-menu">
-			<div class="nav-right">
+
+			<div class="nav-right nav-section">
 				{% if request.user.is_authenticated %}
 				<a href="/accounts/profile.html">Привет   {{user.username}}!<i class="reg"></i></a>
 				<a href="/accounts/logout1">Выход<i class="sign_in"></i></a>
@@ -15,46 +16,43 @@
 			</div>
 		</div>
 		<ul class="main-menu">
+			{% if user.is_authenticated and user.is_superuser %}
+				<li id="li1_4"><a href="/home/index">Главная</a></li>
+				<li id="li5_5"><a href="/control/control_users">Студенты</a></li>
 
-			<li id="li1"><a href="/home/index">Главная</a></li>
-			<li id="li2"><a href="/home/about">О нас</a></li>
-			<li id="li3"><a href="/home/blog">Блог</a></li>
+				<li><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" >Учебные материалы</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/educational_materials/index">Редактирование домашнего задания</a>
+						<a class="dropdown-item" href="/educational_materials/textbooks">Добавление Учебников</a>
+						<a class="dropdown-item" href="/educational_materials/add_video">Добавление Видео</a>
+						<a class="dropdown-item" href="/educational_materials/audio">Добавление Аудио</a>
+						<a class="dropdown-item" href="/educational_materials/source">Редактировать Рекомендуемые</a>
+					</div>
+				</li>
 
-			{% if request.user.is_authenticated %}
-				{% if user.username == "Teacher_Anna" %}
-					<li><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" >Учебные материалы</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="/educational_materials/index">Редактирование домашнего задания</a>
-							<a class="dropdown-item" href="/educational_materials/textbooks">Добавление Учебников</a>
-							<a class="dropdown-item" href="/educational_materials/add_video">Добавление Видео</a>
-							<a class="dropdown-item" href="/educational_materials/audio">Добавление Аудио</a>
-							<a class="dropdown-item" href="/educational_materials/source">Редактировать Рекомендуемые</a>
-						</div>
-					</li>
-				{% elif user.username == "Content_manager" %}
-					<li><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" >Учебные материалы</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="/educational_materials/index">Редактирование домашнего задания</a>
-							<a class="dropdown-item" href="/educational_materials/textbooks">Добавление Учебников</a>
-							<a class="dropdown-item" href="/educational_materials/add_video">Добавление Видео</a>
-							<a class="dropdown-item" href="/educational_materials/audio">Добавление Аудио</a>
-							<a class="dropdown-item" href="/educational_materials/source">Редактировать Рекомендуемые</a>
-						</div>
-					</li>
-				{% else %}
-					<li><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" >Учебные материалы</a>
-						<div class="dropdown-menu">
-							<a class="dropdown-item" href="/educational_materials/homework">Домашнее задание</a>
-							<a class="dropdown-item" href="/educational_materials/textbooks">Учебники</a>
-							<a class="dropdown-item" href="/educational_materials/video">Видео мотериал</a>
-							<a class="dropdown-item" href="/educational_materials/audio">Аудио материалы</a>
-							<a class="dropdown-item" href="/educational_materials/source">Рекомендуемые преподавателем</a>
-						</div>
-					</li>
-				{% endif %}
+			{% elif user.is_active %}
+
+				<li id="li1_2"><a href="/home/index">Главная</a></li>
+				<li id="li2_2"><a href="/home/about">О нас</a></li>
+				<li id="li3_2"><a href="/home/blog">Блог</a></li>
+				<li id="li4_2"><a href="/home/contact">Контакты</a></li>
+				<li><a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" >Учебные материалы</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="/educational_materials/homework">Домашнее задание</a>
+						<a class="dropdown-item" href="/educational_materials/textbooks">Учебники</a>
+						<a class="dropdown-item" href="/educational_materials/video">Видео мотериал</a>
+						<a class="dropdown-item" href="/educational_materials/audio">Аудио материалы</a>
+						<a class="dropdown-item" href="/educational_materials/source">Рекомендуемые преподавателем</a>
+					</div>
+				</li>
+			{% else %}
+				<li id="li1_3"><a href="/home/index">Главная</a></li>
+				<li id="li2_3"><a href="/home/about">О нас</a></li>
+				<li id="li3_3"><a href="/home/blog">Блог</a></li>
+				<li id="li4_4"><a href="/home/contact">Контакты</a></li>
 			{% endif %}
 
-			<li id="li5"><a href="/home/contact">Контакты</a></li>
+
 		</ul>
 	</div>
 </nav>

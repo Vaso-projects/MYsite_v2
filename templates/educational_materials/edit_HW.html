@@ -11,11 +11,11 @@
 <div id="content" class="container">
     <h2>{{ title }}</h2>
     <hr>
+    <input type="file" name="filename">
+    <button type="submit">Заменить картинку </button>
     <form id="work_edit_form" method="post" action="/educational_materials/edit/{{ work.id }}">
         {% csrf_token %}
         <div>
-            <input type="file" name="filename">
-            <button type="submit">Загрузить</button>
             {% for field in form %}
             <div class="form-group">
                 {{ field.label_tag }}

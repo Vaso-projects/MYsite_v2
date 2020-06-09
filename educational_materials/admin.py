@@ -10,5 +10,4 @@ admin.site.register(Homework)
 admin.site.register(Video)
 admin.site.register(Audio)
 admin.site.register(Textbooks)
-
 admin.site.register(Source)
