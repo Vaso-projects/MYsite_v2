@@ -1,5 +1,5 @@
 
-{% extends 'layouts/base2.html' %}
+{% extends 'layouts/base3.html' %}
 
 {% block title %}
     {{ title }}
@@ -14,8 +14,8 @@
     <form class="form-signin" id="form2" action="/accounts/sign_in" method="post">
       {% csrf_token %}
 
-      <img class="mb-4" src="{%static 'img\logo3.png'%}" alt="" width="632" height="140">
 
+      <a href="/home/index"><img class="mb-4" src="{%static 'img\logo3.png'%}" alt="" width="632" height="140"></a>
       <h1 class="h3 mb-3 font-weight-normal">{{title}}</h1>
 
       <input type="text" id="login" name="login" class="form-control" placeholder="Имя пользователя" style="padding-bottom:10px;" required >

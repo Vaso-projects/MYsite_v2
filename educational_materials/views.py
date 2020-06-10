@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 def index(request):
     data = dict()
-    data['title'] = 'Наполнение Учебными материалами'
+    data['title'] = 'Домашние задания'
     data['create_hw'] = Homework.objects.all()
 
     return render(request, 'educational_materials/index.html', context=data)
@@ -90,7 +90,7 @@ def del_a(request):
 
 def homework(request):
     data = dict()
-    data['title'] = 'Учебный материал'
+    data['title'] = 'Домашнее задание'
     return render(request, 'educational_materials/homework.html', context=data)
 
 
