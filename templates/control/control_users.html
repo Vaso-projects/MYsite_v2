@@ -7,7 +7,11 @@
 {% load static %}
 
 {% block content %}
+
 <style>
+    #btn_save {
+        display:inline-block;
+    }
     .Users {
         padding-left: 150px;
     }
@@ -16,39 +20,59 @@
         text-align: center;
     }
 
-
-    </style>
+</style>
+<hr>
+<h2 style="text-align: center; ">{{ title }}</h2>
+<hr>
+<hr>
 
 <body class="bg-light">
 
-    <div class="container">
-        <div class="py-5 text-center">
-            <H4>Ваши студенты</H4>
-        </div>
+    <div class="col-md-5 mb-3">
+        <label for="groups">Сменить группу для выбранных студентов</label>
+        <select class="custom-select d-block w-100" id="groups" required>
+            <option value="">Выбери...</option>
+            <option>Gpoup1</option>
+            <option>GpoupAvia</option>
+            <option>GpoupIt</option>
+            <option>GpoupChild</option>
 
-            <table class="table" >
-                <tr>
-                    <th></th>
-                    <th>id</th>
-                    <th>Логин</th>
-                    <th>Имя</th>
-                    <th>Фамилия</th>
-                    <th>Email</th>
-                    <th>Группа</th>
-                    <th>Адресс</th>
-                </tr>
-            {% for users in page_obj %}
-                <tr>
-                    <td><input type="checkbox" name="key" class="checkbox" ></td>
-                    <td>{{ users.id }}</td>
-                    <td>{{ users.username }}</td>
-                    <td>{{ users.first_name }}</td>
-                    <td>{{ users.last_name }}</td>
-                    <td>{{ users.email }}</td>
-                    <td>{{ users.groups }}</td>
-                    <td>{{ groups }}</td>
-                </tr>
-            {% endfor %}
+        </select>
+            <button id="btn_save" class="btn btn-warning" type="submit">Сохранить</button>
+            <div class="invalid-feedback">
+                Пожалуйста выберите группу для выбранных студентов
+            </div>
+
+    </div>
+
+    <div class='container'>
+        <table class="table" >
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">id</th>
+                <th scope="col">Логин</th>
+                <th scope="col">Имя</th>
+                <th scope="col">Фамилия</th>
+                <th scope="col">Email</th>
+                <th scope="col">Группа</th>
+                <th scope="col">Группа</th>
+            </tr>
+        {% for users in page_obj %}
+            <tr>
+                <td scope="col"><label><input type="checkbox" name="key" class="checkbox" ></label></td>
+                <td scope="col">{{ users.id }}</td>
+                <td scope="col">{{ users.username }}</td>
+                <td scope="col">{{ users.first_name }}</td>
+                <td scope="col">{{ users.last_name }}</td>
+                <td scope="col">{{ users.email }}</td>
+                <td scope="col">{{ groups }}</td>
+                {% for i in groups %}
+                    {%if i == groups %}
+                <td scope="col">{{ i }}</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        {% endfor %}
         </table>
 
     </div>

@@ -1,7 +1,6 @@
-from django.conf import settings
+
 from django.contrib.auth.models import User, Group
 from django.db import models
-from django.utils import timezone
 from time import strftime
 
 
@@ -17,7 +16,7 @@ class Homework(models.Model):
     published = models.DateTimeField(null=False, default=strftime('%Y-%m-%d %H:%M'))
     topic = models.CharField(max_length=100, help_text='Тема урока', null=False)
     about = models.CharField(max_length=100, help_text='Описание',  null=False)
-    content = models.TextField(max_length=512, blank=True, help_text='Содержание', null=False)
+    content = models.TextField(max_length=2048, blank=True, help_text='Содержание', null=False)
     image = models.FileField(null=True, upload_to=None)
     file = models.FileField(null=True, blank=True, upload_to='upload/FilesHW/')
     source = models.URLField(null=False, blank=True,)
@@ -25,7 +24,7 @@ class Homework(models.Model):
     group = models.ManyToManyField(Groups)
 
     def publish(self):
-        self.published = timezone.now()
+        self.published = strftime('%Y-%m-%d %H:%M')
         self.save()
 
 
